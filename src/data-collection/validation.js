@@ -8,15 +8,8 @@ function validatePhone(phone) {
   return regex.test(phone) || "Please enter a valid South African phone number";
 }
 
-/* function validatePostalCode(postalCode) {
-  const regex = /^[0-9]{4}$/;
-  return (
-    regex.test(postalCode) || "Please enter a valid South African postal code"
-  );
-} */
-
 function validateRequired(text) {
   return text.trim().length > 0 || "This field is required";
 }
 
-export { validateEmail, validatePhone, validatePostalCode, validateRequired };
+export { validateEmail, validatePhone, validateRequired };

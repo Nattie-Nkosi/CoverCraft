@@ -24,14 +24,12 @@ const prompts = [
     name: "phone",
     message: "Please enter your phone number:",
     validate: validatePhone,
-    validate: validateRequired,
   },
   {
     type: "input",
     name: "email",
     message: "Please enter your email address:",
     validate: validateEmail,
-    validate: validateRequired,
   },
   {
     type: "input",
@@ -91,7 +89,7 @@ const prompts = [
 async function collectData() {
   const answers = await inquirer.prompt(prompts);
 
-  answers.name = capitalizeWords(answers.name);
+  answers.fullname = capitalizeWords(answers.fullname);
   answers.address = formatAddress(answers.address);
 
   if (answers.salutation === "Dear [Recipient's Name]") {
