@@ -8,24 +8,8 @@ function capitalizeWords(str) {
   );
 }
 
-function formatAddress(address) {
-  const { streetNumber, streetName, suburb, city, province, postalCode } =
-    address;
-
-  // Concatenating the address components into the standard South African format
-  const formattedAddress = `
-    ${streetNumber} ${streetName}
-    ${suburb}
-    ${city}
-    ${province}
-    ${postalCode}
-  `;
-
-  return formattedAddress.trim();
-}
-
 function customSalutation(name) {
   return `Dear ${name},`;
 }
 
-export { capitalizeWords, formatAddress, customSalutation };
+export { capitalizeWords, customSalutation };

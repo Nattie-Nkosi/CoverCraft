@@ -1,5 +1,6 @@
 function createCoverLetter(answers) {
   return `
+
   ${answers.salutation}
 
   ${answers.introduction}
@@ -9,8 +10,6 @@ function createCoverLetter(answers) {
   ${answers.closing},
   
   ${answers.signature}
-  
-  ${answers.footer || ""}
   `;
 }
 
