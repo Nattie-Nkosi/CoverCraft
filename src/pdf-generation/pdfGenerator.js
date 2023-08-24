@@ -7,17 +7,15 @@ function generatePDF(content) {
   }
   const doc = new jsPDF();
   const margin = 10;
-  const lineHeight = 5; // Adjusted line height
-  const pageHeight = doc.internal.pageSize.getHeight() - margin * 2; // Added margin to the bottom
+  const lineHeight = 5;
+  const pageHeight = doc.internal.pageSize.getHeight() - margin * 2;
   const pageWidth = doc.internal.pageSize.getWidth();
 
   doc.setFont("Helvetica");
   doc.setFontSize(10);
 
-  // Define the y position for the top alignment
   let yPosition = margin;
 
-  // Split the address into lines
   const addressLines = content.address.split("\n");
 
   addressLines.forEach((line, index) => {
