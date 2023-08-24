@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { capitalizeWords, formatAddress, customSalutation } from "./helpers.js";
+import { capitalizeWords, customSalutation } from "./helpers.js";
 import {
   validateEmail,
   validatePhone,
@@ -32,18 +32,6 @@ const prompts = [
     validate: validateEmail,
   },
   {
-    type: "input",
-    name: "recipientName",
-    message: "Please enter the recipient's name:",
-    validate: validateRequired,
-  },
-  {
-    type: "input",
-    name: "recipientAddress",
-    message: "Please enter the recipient's address:",
-    validate: validateRequired,
-  },
-  {
     type: "list",
     name: "salutation",
     message: "Please choose a salutation:",
@@ -52,6 +40,13 @@ const prompts = [
       "To Whom It May Concern",
       "Dear [Recipient's Name]",
     ],
+    validate: validateRequired,
+  },
+  {
+    type: "input",
+    name: "recipientName",
+    message: "Please enter the recipient's name:",
+    when: (answers) => answers.salutation === "Dear [Recipient's Name]",
     validate: validateRequired,
   },
   {
@@ -79,18 +74,12 @@ const prompts = [
     message: "Please enter your name for the signature:",
     validate: validateRequired,
   },
-  {
-    type: "editor",
-    name: "footer",
-    message: "Please write any additional footer information (optional):",
-  },
 ];
 
 async function collectData() {
   const answers = await inquirer.prompt(prompts);
 
   answers.fullname = capitalizeWords(answers.fullname);
-  answers.address = formatAddress(answers.address);
 
   if (answers.salutation === "Dear [Recipient's Name]") {
     answers.salutation = customSalutation(answers.recipientName);
