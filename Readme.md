@@ -12,18 +12,27 @@ coverCraft is a powerful and user-friendly Command-Line Interface (CLI) tool des
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/Nattie-Nkosi/CoverCraft
-
+   ```bash
+    git clone https://github.com/Nattie-Nkosi/CoverCraft
+   ```
 2. Navigate to the project directory:
-   cd coverCraft
+
+   ```bash
+      cd coverCraft
+   ```
 
 3. Install the dependencies:
-   npm install
+   ```bash
+    npm install
+   ```
 
 ## Usage
 
 1. Start the application:
-   npm start
+
+   ```bash
+     npm start
+   ```
 
 2. Follow the prompts to enter your details and preferences.
 
